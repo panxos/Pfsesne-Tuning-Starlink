@@ -36,11 +36,11 @@ def print_banner():
     c = Colors
     
     print(f"\n{c.CYAN}╔══════════════════════════════════════════════════════════════╗{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.MAGENTA}   _____ __             __    _       __{c.ENDC}                 {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.MAGENTA}  / ___// /_____ ______/ /   (_)___  / /___{c.ENDC}             {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.MAGENTA}  \\__ \\/ __/ __ `/ ___/ /   / / __ \\/ //_/{c.ENDC}              {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.MAGENTA} ___/ / /_/ /_/ / /  / /___/ / / / / ,<{c.ENDC}                 {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.MAGENTA}/____/\\__/\\__,_/_/  /_____/_/_/ /_/_/|_|{c.ENDC}                {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}   _____ __             __    _       __{c.ENDC}              {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}  / ___// /_____ ______/ /   (_)___  / /___{c.ENDC}          {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}  \\__ \\/ __/ __ `/ ___/ /   / / __ \\/ //_/{c.ENDC}           {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA} ___/ / /_/ /_/ / /  / /___/ / / / / ,<{c.ENDC}              {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}/____/\\__/\\__,_/_/  /_____/_/_/ /_/_/|_|{c.ENDC}             {c.CYAN}║{c.ENDC}")
     print(f"{c.CYAN}║{c.ENDC}                                                              {c.CYAN}║{c.ENDC}")
     print(f"{c.CYAN}║{c.ENDC}     {c.BOLD}PFSENSE HIGH PERFORMANCE OPTIMIZER {c.BLUE}|{c.ENDC} {c.BOLD}STARLINK EDITION{c.ENDC}    {c.CYAN}║{c.ENDC}")
     print(f"{c.CYAN}╠══════════════════════════════════════════════════════════════╣{c.ENDC}")

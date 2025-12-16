@@ -5,6 +5,8 @@
 [![PHP](https://img.shields.io/badge/Agent-PHP-purple.svg)](https://www.php.net/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+![Starlink Banner](images/starlink_banner.png)
+
 > **Herramienta Profesional de Auditoría, Optimización y Tuning para conexiones Starlink en pfSense.**  
 > *Desbloquea el verdadero potencial de tu conexión satelital.*
 
@@ -12,11 +14,11 @@
 
 ```text
 ╔══════════════════════════════════════════════════════════════╗
-║     _____ __             __    _       __                 ║
-║    / ___// /_____ ______/ /   (_)___  / /___             ║
-║    \__ \/ __/ __ `/ ___/ /   / / __ \/ //_/              ║
-║   ___/ / /_/ /_/ / /  / /___/ / / / / ,<                 ║
-║  /____/\__/\__,_/_/  /_____/_/_/ /_/_/|_|                ║
+║   _____ __             __    _       __                 ║
+║  / ___// /_____ ______/ /   (_)___  / /___             ║
+║  \__ \/ __/ __ `/ ___/ /   / / __ \/ //_/              ║
+║ ___/ / /_/ /_/ / /  / /___/ / / / / ,<                 ║
+║/____/\__/\__,_/_/  /_____/_/_/ /_/_/|_|                ║
 ║                                                              ║
 ║     PFSENSE HIGH PERFORMANCE OPTIMIZER | STARLINK EDITION    ║
 ╠══════════════════════════════════════════════════════════════╣

@@ -1,8 +1,0 @@
-Para colocar tu banner personalizado en el README:
-
-1. Crea o descarga una imagen profesional (generada con IA o Photoshop).
-2. Guárdala con el nombre exacto: starlink_banner.png
-3. Colócala en esta carpeta (images/).
-
-El README.md ya está configurado para mostrarla automáticamente en la cabecera.
-Dimensiones recomendadas: 1200x400 px.

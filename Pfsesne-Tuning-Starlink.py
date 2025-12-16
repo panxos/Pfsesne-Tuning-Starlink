@@ -35,17 +35,21 @@ def print_banner():
     # Banner estilo HUD / Cyberpunk Clean
     c = Colors
     
+def print_banner():
+    # Banner estilo HUD / Cyberpunk Clean
+    c = Colors
+    
     print(f"\n{c.CYAN}╔══════════════════════════════════════════════════════════════╗{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}   _____ __             __    _       __{c.ENDC}              {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}  / ___// /_____ ______/ /   (_)___  / /___{c.ENDC}          {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}  \\__ \\/ __/ __ `/ ___/ /   / / __ \\/ //_/{c.ENDC}           {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA} ___/ / /_/ /_/ / /  / /___/ / / / / ,<{c.ENDC}              {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}   {c.MAGENTA}/____/\\__/\\__,_/_/  /_____/_/_/ /_/_/|_|{c.ENDC}             {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}       {c.MAGENTA}   _____ __             __    _       __{c.ENDC}             {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}       {c.MAGENTA}  / ___// /_____ ______/ /   (_)___  / /___{c.ENDC}         {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}       {c.MAGENTA}  \\__ \\/ __/ __ `/ ___/ /   / / __ \\/ //_/{c.ENDC}          {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}       {c.MAGENTA} ___/ / /_/ /_/ / /  / /___/ / / / / ,<{c.ENDC}             {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}       {c.MAGENTA}/____/\\__/\\__,_/_/  /_____/_/_/ /_/_/|_|{c.ENDC}            {c.CYAN}║{c.ENDC}")
     print(f"{c.CYAN}║{c.ENDC}                                                              {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}     {c.BOLD}PFSENSE HIGH PERFORMANCE OPTIMIZER {c.BLUE}|{c.ENDC} {c.BOLD}STARLINK EDITION{c.ENDC}    {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}    {c.BOLD}PFSENSE HIGH PERFORMANCE OPTIMIZER {c.BLUE}|{c.ENDC} {c.BOLD}STARLINK EDITION{c.ENDC}     {c.CYAN}║{c.ENDC}")
     print(f"{c.CYAN}╠══════════════════════════════════════════════════════════════╣{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.BLUE}AUTHOR :{c.ENDC} {c.BOLD}Francisco Aravena{c.ENDC}                                {c.CYAN}║{c.ENDC}")
-    print(f"{c.CYAN}║{c.ENDC}  {c.BLUE}GITHUB :{c.ENDC} {c.UNDERLINE}github.com/panxos/Pfsesne-Tuning-Starlink{c.ENDC}        {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}  {c.BLUE}AUTHOR :{c.ENDC} {c.BOLD}Francisco Aravena{c.ENDC}                                   {c.CYAN}║{c.ENDC}")
+    print(f"{c.CYAN}║{c.ENDC}  {c.BLUE}GITHUB :{c.ENDC} {c.UNDERLINE}github.com/panxos/Pfsesne-Tuning-Starlink{c.ENDC}           {c.CYAN}║{c.ENDC}")
     print(f"{c.CYAN}╚══════════════════════════════════════════════════════════════╝{c.ENDC}")
     print(f"   {c.FAIL}[ SYSTEM READY ]{c.ENDC}   {c.WARNING}[ SSH SECURE ]{c.ENDC}   {c.GREEN}[ SATELLITE LINK ]{c.ENDC}\n")
 

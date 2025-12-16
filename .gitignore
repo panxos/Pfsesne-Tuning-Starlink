@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local Backups (Created by script)
+backups/*.xml
+*.log
+
+# System
+.DS_Store
+Thumbs.db

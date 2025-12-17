@@ -6,44 +6,16 @@
  * Uso: php pfsense_agent.php [audit|apply|restore|security]
  */
 
-// Configuración de errores para depuración (Solo errores fatales para evitar ruido JSON)
-ini_set('display_errors', '0'); // Desactivar salida a stdout directa
-ini_set('log_errors', '1');     // Loguear errores
-ini_set('error_log', '/tmp/pfsense_agent.log'); // Archivo de log dedicado
-error_reporting(E_ERROR | E_PARSE); // Ignorar Deprecated/Warnings
-
-// Cambiar al directorio de includes para evitar problemas de rutas relativas
-chdir('/etc/inc');
-
-// Forzar rutas de inclusión comunes en pfSense
-$includes = array(
-    "/etc/inc", 
-    "/usr/local/www", 
-    "/usr/local/captiveportal", 
-    "/usr/local/pkg",
-    "/usr/local/share/pear",
-    "/usr/local/pfSense/include/www"
-);
-set_include_path(implode(":", $includes) . ":" . get_include_path());
-
-// Cargar librerías esenciales en orden correcto
-if (!file_exists("/etc/inc/globals.inc")) {
-    // Si no encontramos globals, probablemente no es pfsense o la ruta está mal
-    echo json_encode(['status' => 'error', 'message' => 'No se encontró /etc/inc/globals.inc. ¿Es esto un pfSense?']);
-    exit(1);
-}
-
-require_once("globals.inc");
 require_once("config.inc");
 require_once("functions.inc");
 require_once("util.inc");
 require_once("pkg-utils.inc");
 
 // Colores para salida en consola (si se ejecuta interactivamente)
-if (!defined('RED')) define('RED', "\033[0;31m");
-if (!defined('GREEN')) define('GREEN', "\033[0;32m");
-if (!defined('YELLOW')) define('YELLOW', "\033[1;33m");
-if (!defined('NC')) define('NC', "\033[0m");
+define('RED', "\033[0;31m");
+define('GREEN', "\033[0;32m");
+define('YELLOW', "\033[1;33m");
+define('NC', "\033[0m");
 
 // Configuración recomendada
 $starlink_recommendations = [
@@ -268,68 +240,9 @@ function apply_tuning() {
 }
 
 /**
- * Aplicar Optimizaciones ULTRA (Loader)
- */
-function apply_ultra_tuning() {
-    $changes = [];
-    $loader_tunables = [
-        'kern.ipc.nmbclusters' => '1000000',
-        'kern.ipc.maxsockbuf' => '16777216',
-        'net.isr.defaultqlimit' => '2048',
-        'net.inet.tcp.tso' => '0' // Desactivar TSO ayuda con Starlink a veces
-    ];
-
-    // Detectar sistema de arranque (pfSense nuevo vs viejo)
-    $loader_dir = '/boot/loader.conf.d';
-    $target_file = '';
-    
-    if (is_dir($loader_dir)) {
-        // Método moderno: archivo dedicado
-        $target_file = $loader_dir . '/starlink.conf';
-        $content = "# Optimización Starlink ULTRA - Generado automáticamente\n";
-        foreach ($loader_tunables as $key => $val) {
-            $content .= "$key=\"$val\"\n";
-        }
-        file_put_contents($target_file, $content);
-        $changes[] = "Creado archivo moderno: $target_file";
-    } else {
-        // Método clásico: loader.conf.local
-        $target_file = '/boot/loader.conf.local';
-        $current_content = file_exists($target_file) ? file_get_contents($target_file) : "";
-        
-        // Limpiar entradas antiguas nuestras
-        $lines = explode("\n", $current_content);
-        $clean_lines = [];
-        foreach ($lines as $line) {
-            $is_target = false;
-            foreach ($loader_tunables as $key => $val) {
-                if (strpos($line, $key) === 0) {
-                    $is_target = true;
-                    break;
-                }
-            }
-            if (!$is_target && !empty(trim($line))) {
-                $clean_lines[] = $line;
-            }
-        }
-        
-        // Agregar nuevas
-        $clean_lines[] = "\n# Optimización Starlink ULTRA";
-        foreach ($loader_tunables as $key => $val) {
-            $clean_lines[] = "$key=\"$val\"";
-        }
-        
-        file_put_contents($target_file, implode("\n", $clean_lines) . "\n");
-        $changes[] = "Modificado archivo clásico: $target_file";
-    }
-
-    return_json('success', 'Optimizaciones ULTRA aplicadas (Requiere REINICIO)', ['changes' => $changes]);
-}
-
-/**
  * Restaurar Configuración Anterior
  */
-function agent_restore_backup() {
+function restore_backup() {
     // Restaurar el último backup disponible en el historial
     // NOTA: Esto es una simplificación. En un caso real, buscaríamos el backup específico.
     // Para este script, asumiremos que si el usuario pide restore, quiere el inmediato anterior.
@@ -374,11 +287,8 @@ switch ($mode) {
     case 'apply':
         apply_tuning();
         break;
-    case 'ultra':
-        apply_ultra_tuning();
-        break;
     case 'restore':
-        agent_restore_backup();
+        restore_backup();
         break;
     default:
         echo "Uso: php pfsense_agent.php [audit|security|apply|restore]\n";
